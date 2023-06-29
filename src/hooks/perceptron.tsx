@@ -24,10 +24,10 @@ export function usePerceptron() {
     update(Date.now())
   }, [])
 
-  const randomize = useCallback(() => {
-    trainer.neuron.randomize()
+  const clear = useCallback(() => {
+    trainer.neuron.clear()
     update(Date.now())
   }, [])
 
-  return { neuron: { ...trainer.neuron.data }, predict, train, randomize }
+  return { neuron: { ...trainer.neuron.data }, predict, train, clear }
 }

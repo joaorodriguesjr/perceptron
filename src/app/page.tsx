@@ -17,7 +17,7 @@ const data = [
 export default function Home() {
   const [current, setCurrent] = useState(data[0])
   const [iterations, updateIterations] = useState(10)
-  const { neuron, predict, train, randomize } = usePerceptron()
+  const { neuron, predict, train, clear } = usePerceptron()
 
   const prediction = predict(current.inputs)
 
@@ -41,7 +41,7 @@ export default function Home() {
       <section className={styles.controls}>
         <Iterations currentCount={iterations} onCountSelection={updateIterations} />
         <div className={styles.actions}>
-          <button onClick={() => randomize()}>Forget</button>
+          <button onClick={() => clear()}>Forget</button>
           <button onClick={() => train(data, iterations)}>Train</button>
         </div>
       </section>

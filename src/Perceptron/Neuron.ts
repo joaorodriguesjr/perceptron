@@ -33,6 +33,11 @@ export class Neuron {
     this.weights = this.weights.map(() => Math.random() * 2 - 1)
   }
 
+  public clear(): void {
+    this.output = 0, this.error = 0, this.inputs = []
+    this.bias = 0, this.weights = this.weights.map(() => 0)
+  }
+
   public get data() {
     return {...this}
   }
