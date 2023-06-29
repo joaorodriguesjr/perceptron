@@ -2,7 +2,7 @@
 
 import styles from './page.module.css'
 import { useState } from 'react'
-import { compare, usePerceptron } from './perceptron'
+import { compare, usePerceptron } from '@/hooks/perceptron'
 import { Iterations } from '@/components/iterations'
 import { Neuron } from '@/components/neuron'
 import { DataSelection } from '@/components/selection'
