@@ -26,7 +26,7 @@ export function usePerceptron() {
   }, [])
 
   const compare = useCallback((a: Data, b: Data) => {
-    return a.inputs[0] === b.inputs[0] && a.inputs[1] === b.inputs[1] && a.target === b.target
+    return a.inputs.every((input, index) => input === b.inputs[index]) && a.target === b.target
   }, [])
 
   return { neuron: { ...trainer.neuron.data }, predict, train, clear, compare }
