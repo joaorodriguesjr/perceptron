@@ -10,18 +10,23 @@
   font-weight: bold;
 }
 
-.iterations > div {
+.iterations div {
   flex: 1;
   padding: 8px 16px;
   text-align: center;
   letter-spacing: 0.025rem;
   border-right: 1px solid #353535;
+  transition: background-color ease-in-out 100ms;
 }
 
-.iterations > div:last-child {
+.iterations div:last-child {
   border-right: none;
 }
 
 .selected {
   background-color: #303030;
+}
+
+.iterations div:active {
+  background-color: #404040;
 }
