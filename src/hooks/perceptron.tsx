@@ -1,7 +1,7 @@
 import { Trainer } from '@/Perceptron/Trainer'
 import { useCallback, useState } from 'react'
 
-export type InputData = {
+export type Data = {
   inputs: number[]
   target: number
 }
@@ -15,7 +15,7 @@ export function usePerceptron() {
     return trainer.neuron.calculateOutput(inputs)
   }, [])
 
-  const train = useCallback((data: InputData[], epochs: number) => {
+  const train = useCallback((data: Data[], epochs: number) => {
     trainer.train(data, epochs)
     update(Date.now())
   }, [])
@@ -25,7 +25,7 @@ export function usePerceptron() {
     update(Date.now())
   }, [])
 
-  const compare = useCallback((a: InputData, b: InputData) => {
+  const compare = useCallback((a: Data, b: Data) => {
     return a.inputs[0] === b.inputs[0] && a.inputs[1] === b.inputs[1] && a.target === b.target
   }, [])
 
