@@ -2,7 +2,7 @@
 
 import styles from './page.module.css'
 import { useState } from 'react'
-import { compare, usePerceptron } from '@/hooks/perceptron'
+import { usePerceptron } from '@/hooks/perceptron'
 import { Iterations } from '@/components/iterations'
 import { Neuron } from '@/components/neuron'
 import { DataSelection } from '@/components/selection'
@@ -17,7 +17,7 @@ const data = [
 export default function Home() {
   const [current, setCurrent] = useState(data[0])
   const [iterations, updateIterations] = useState(10)
-  const { neuron, predict, train, clear } = usePerceptron()
+  const { neuron, predict, train, clear, compare } = usePerceptron()
 
   const prediction = predict(current.inputs)
 
