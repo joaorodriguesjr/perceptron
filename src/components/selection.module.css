@@ -10,6 +10,10 @@
   z-index: 10;
 }
 
+.table tr {
+  transition: background-color ease-in-out 100ms;
+}
+
 .table td {
   padding: 6px;
 }
@@ -51,5 +55,8 @@
 
 .table tr.selected {
   background-color: #303030;
-  /* color: hsl(125, 45%, 55%); */
+}
+
+.table tr:active {
+  background-color: #404040;
 }
