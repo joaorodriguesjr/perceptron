@@ -11,9 +11,9 @@ const trainer = Trainer.create()
 export function usePerceptron() {
   const [_moment, update] = useState(Date.now())
 
-  const predict = (inputs: number[]): number => {
+  const predict = useCallback((inputs: number[]): number => {
     return trainer.neuron.calculateOutput(inputs)
-  }
+  }, [])
 
   const train = useCallback((data: InputData[], epochs: number) => {
     trainer.train(data, epochs)
@@ -25,9 +25,9 @@ export function usePerceptron() {
     update(Date.now())
   }, [])
 
-  const compare = (a: InputData, b: InputData) => {
+  const compare = useCallback((a: InputData, b: InputData) => {
     return a.inputs[0] === b.inputs[0] && a.inputs[1] === b.inputs[1] && a.target === b.target
-  }
+  }, [])
 
   return { neuron: { ...trainer.neuron.data }, predict, train, clear, compare }
 }
